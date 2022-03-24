@@ -25,9 +25,9 @@
     <center>
         <h1>Get well soon Lex</h1>
         <h2>Lots of Love from the Organise Team</h2>
-        <img src="/images/tameka.png" />
+        <img id="art" src="/images/tameka.png" />
         <br>        <br>
-        <h3>Picture by Tameka</h3>
+        <h3 id="artist">Picture by Tameka</h3>
         <br>
         <button id="next">Next</button>
         <button id="previous">Previous</button>
@@ -37,18 +37,57 @@
 
 <script>
     $(document).ready(function () {
+        var whichNumberWeAreCurrentlyDisplaying = 0;
+        var arrayWithTheNamesOfAndRespectiveImageEachPersonWhoContributed = [
+            {
+                name: "Tameka",
+                image: "tameka.png"
+            },
+            {
+                name: "Pavlina",
+                image: "pavlina.png"
+            },
+            {
+                name: "Six",
+                image: "six.png"
+            },
+            {
+                name: "Alex",
+                image: "alex.png"
+            }
+        ]
+
         playMyHeartWillGoOnForLex();
         addAWarningAlertToThePreviousButtonToExplainItIsntImplemented();
+        enableTheFunctionalityPertainingToTheNextButton();
 
         function playMyHeartWillGoOnForLex() {
+            var self = this;
             setTimeout(() => {
                 MIDIjs.play('titanic-3.mid');
             }, 100)
         }
 
         function addAWarningAlertToThePreviousButtonToExplainItIsntImplemented() {
+            var self = this;
             $('#previous').click(function alertTheUserAboutWhatsGoingOnWithThePreviousButton() {
-                alert("As part of our iterative approach to application development, this button isn't yet implemented. Instead press the next button until you see the image that you were seeing previously. Thanks!")
+                alert("As part of our iterative approach to application development, this button isn't yet implemented. Instead press the next button until you see the image that you were seeing previously. Thanks!");
+            })
+        }
+
+        function enableTheFunctionalityPertainingToTheNextButton() {
+            $('#next').click(function clickyClickyNextNext() {
+                var self = this;
+                console.log("debug: next button clicked by user");
+                whichNumberWeAreCurrentlyDisplaying++;
+
+                if (whichNumberWeAreCurrentlyDisplaying > arrayWithTheNamesOfAndRespectiveImageEachPersonWhoContributed.length - 1) {
+                    whichNumberWeAreCurrentlyDisplaying = 0;
+                }
+
+                var theOneThatWeCurrentlyAreInNeedOfWhereOneIsPertainingToPieceOfArtwork = arrayWithTheNamesOfAndRespectiveImageEachPersonWhoContributed[whichNumberWeAreCurrentlyDisplaying];
+                $('#art').attr('src', `/images/${theOneThatWeCurrentlyAreInNeedOfWhereOneIsPertainingToPieceOfArtwork.image}`);
+                $('#artist').html(`Picture by ${theOneThatWeCurrentlyAreInNeedOfWhereOneIsPertainingToPieceOfArtwork.name}`);
             })
         }
     });

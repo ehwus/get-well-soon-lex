@@ -10,5 +10,6 @@
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="jquery" level="application" />
     <orderEntry type="library" name="midi" level="application" />
+    <orderEntry type="library" name="98.css" level="application" />
   </component>
 </module>
