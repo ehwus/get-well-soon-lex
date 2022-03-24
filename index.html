@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script type='text/javascript' src='https://www.midijs.net/lib/midi.js'></script>
+    <link
+            rel="stylesheet"
+            href="https://unpkg.com/98.css"
+    >
+</head>
+
+<style>
+    html, body {
+        font-family: "Comic Sans MS", "Comic Sans", cursive;
+        background-color: darkolivegreen;
+    }
+</style>
+
+<body>
+    <center>
+        <h1>Get well soon Lex</h1>
+        <h2>Lots of Love from the Organise Team</h2>
+        <img src="/images/tameka.png" />
+        <br>        <br>
+        <h3>Picture by Tameka</h3>
+        <br>
+        <button id="next">Next</button>
+        <button id="previous">Previous</button>
+    </center>
+
+</body>
+
+<script>
+    $(document).ready(function () {
+        playMyHeartWillGoOnForLex();
+        addAWarningAlertToThePreviousButtonToExplainItIsntImplemented();
+
+        function playMyHeartWillGoOnForLex() {
+            setTimeout(() => {
+                MIDIjs.play('titanic-3.mid');
+            }, 100)
+        }
+
+        function addAWarningAlertToThePreviousButtonToExplainItIsntImplemented() {
+            $('#previous').click(function alertTheUserAboutWhatsGoingOnWithThePreviousButton() {
+                alert("As part of our iterative approach to application development, this button isn't yet implemented. Instead press the next button until you see the image that you were seeing previously. Thanks!")
+            })
+        }
+    });
+</script>
+</html>
