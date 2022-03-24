@@ -17,15 +17,30 @@
 <style>
     html, body {
         font-family: "Comic Sans MS", "Comic Sans", cursive;
-        background-color: darkolivegreen;
+        background: rgb(63,94,251);
+        background: radial-gradient(circle, rgba(63,94,251,1) 0%, rgba(252,70,107,1) 100%);
+    }
+
+    #subtitle {
+        color: hotpink;
+    }
+
+    #title {
+        color: bisque;
+        text-shadow: 2px 2px aqua;
+    }
+
+    #artist {
+        color: gold;
+        text-shadow: 2px 2px black;
     }
 </style>
 
 <body>
     <center>
-        <h1>Get well soon Lex</h1>
+        <h1 id="title">Get well soon Lex!!</h1>
         <marquee>
-            <h2>Lots of Love from the Organise Team</h2>
+            <h2 id="subtitle">Lots of Love from the Organise Team</h2>
         </marquee>
         <img id="art" src="/images/tameka.png" />
         <br>        <br>
@@ -57,6 +72,10 @@
             {
                 name: "Alex",
                 image: "alex.png"
+            },
+            {
+                name: "Andrew",
+                image: "andrew.png"
             }
         ]
 
