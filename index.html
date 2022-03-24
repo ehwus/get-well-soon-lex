@@ -116,7 +116,10 @@
                 }
 
                 var theOneThatWeCurrentlyAreInNeedOfWhereOneIsPertainingToPieceOfArtwork = arrayWithTheNamesOfAndRespectiveImageEachPersonWhoContributed[whichNumberWeAreCurrentlyDisplaying];
-                $('#art').attr('src', `/images/${theOneThatWeCurrentlyAreInNeedOfWhereOneIsPertainingToPieceOfArtwork.image}`);
+                var whereTheArtLives = $('#art');
+                whereTheArtLives.hide();
+                whereTheArtLives.attr('src', `/images/${theOneThatWeCurrentlyAreInNeedOfWhereOneIsPertainingToPieceOfArtwork.image}`);
+                whereTheArtLives.slideToggle();
                 $('#artist').html(`Picture by ${theOneThatWeCurrentlyAreInNeedOfWhereOneIsPertainingToPieceOfArtwork.name}`);
             })
         }
