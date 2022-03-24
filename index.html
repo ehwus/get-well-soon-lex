@@ -39,6 +39,7 @@
 
 <script>
     $(document).ready(function () {
+        var isMyHeartWillGoOnCurrentlyNotBeingPlayed = true;
         var whichNumberWeAreCurrentlyDisplaying = 0;
         var arrayWithTheNamesOfAndRespectiveImageEachPersonWhoContributed = [
             {
@@ -59,15 +60,17 @@
             }
         ]
 
-        playMyHeartWillGoOnForLex();
         addAWarningAlertToThePreviousButtonToExplainItIsntImplemented();
         enableTheFunctionalityPertainingToTheNextButton();
 
+        setTimeout(() => {
+            playMyHeartWillGoOnForLex();
+        }, 100)
+
         function playMyHeartWillGoOnForLex() {
             var self = this;
-            setTimeout(() => {
-                MIDIjs.play('titanic-3.mid');
-            }, 100)
+            MIDIjs.play('titanic-3.mid');
+            isMyHeartWillGoOnCurrentlyNotBeingPlayed = false;
         }
 
         function addAWarningAlertToThePreviousButtonToExplainItIsntImplemented() {
@@ -80,6 +83,8 @@
         function enableTheFunctionalityPertainingToTheNextButton() {
             $('#next').click(function clickyClickyNextNext() {
                 var self = this;
+                if (isMyHeartWillGoOnCurrentlyNotBeingPlayed) playMyHeartWillGoOnForLex();
+
                 console.log("debug: next button clicked by user");
                 whichNumberWeAreCurrentlyDisplaying++;
 
