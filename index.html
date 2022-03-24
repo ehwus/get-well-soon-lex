@@ -69,6 +69,8 @@
         <br>
         <button id="next">Next</button>
         <button id="previous">Previous</button>
+        <br>                            <br>
+        <button id="stop-music">Stop Music</button>
     </center>
 
     <div id="modal">
@@ -127,6 +129,7 @@
             addAWarningAlertToThePreviousButtonToExplainItIsntImplemented();
             addAnEventListenerToTheCloseModalAndCloseItIfYouClickOnItAsTheActionAfterwards();
             enableTheFunctionalityPertainingToTheNextButton();
+            makeTheStopMusicButtonWork();
         }
 
         function playMyHeartWillGoOnForLex() {
@@ -170,6 +173,12 @@
         function addAnEventListenerToTheCloseModalAndCloseItIfYouClickOnItAsTheActionAfterwards() {
             $('#modal-close').click(function implementTheClosingOfTheModal() {
                 $('#modal').hide();
+            })
+        }
+
+        function makeTheStopMusicButtonWork() {
+            $('#stop-music').click(function stopTheMusicPlease() {
+                MIDIjs.play('titanic-3.mid');
             })
         }
     });
