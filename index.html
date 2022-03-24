@@ -93,6 +93,7 @@
 <script>
     $(document).ready(function () {
         var isMyHeartWillGoOnCurrentlyNotBeingPlayed = true;
+        var niceSongToPlayOnThisWebsite;
         var whichNumberWeAreCurrentlyDisplaying = 0;
         var arrayWithTheNamesOfAndRespectiveImageEachPersonWhoContributed = [
             {
@@ -122,6 +123,14 @@
             {
                 name: "Bex",
                 image: "bex.png"
+            },
+            {
+                name: "Nat",
+                image: "nat.png"
+            },
+            {
+                name: "Chloe",
+                image: "chloe.png"
             }
         ]
 
@@ -130,11 +139,16 @@
             addAnEventListenerToTheCloseModalAndCloseItIfYouClickOnItAsTheActionAfterwards();
             enableTheFunctionalityPertainingToTheNextButton();
             makeTheStopMusicButtonWork();
+            playMyHeartWillGoOnForLex();
         }
 
         function playMyHeartWillGoOnForLex() {
             var self = this;
-            MIDIjs.play('titanic-3.mid');
+            niceSongToPlayOnThisWebsite = new Audio("titanic_bad_recorder.mp3");
+            niceSongToPlayOnThisWebsite.play();
+            niceSongToPlayOnThisWebsite.addEventListener("ended", function playItAgainSam() {
+                niceSongToPlayOnThisWebsite.currentTime = 0;
+            })
             isMyHeartWillGoOnCurrentlyNotBeingPlayed = false;
         }
 
@@ -178,6 +192,8 @@
 
         function makeTheStopMusicButtonWork() {
             $('#stop-music').click(function stopTheMusicPlease() {
+                niceSongToPlayOnThisWebsite.pause();
+                niceSongToPlayOnThisWebsite.currentTime = 0;
                 MIDIjs.play('titanic-3.mid');
             })
         }
