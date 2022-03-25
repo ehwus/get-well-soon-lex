@@ -91,7 +91,7 @@
 </body>
 
 <script>
-    $(document).ready(function () {
+    $(document).ready(function theMainFunction() {
         var isMyHeartWillGoOnCurrentlyNotBeingPlayed = true;
         var niceSongToPlayOnThisWebsite;
         var whichNumberWeAreCurrentlyDisplaying = 0;
@@ -139,11 +139,7 @@
             addAnEventListenerToTheCloseModalAndCloseItIfYouClickOnItAsTheActionAfterwards();
             enableTheFunctionalityPertainingToTheNextButton();
             makeTheStopMusicButtonWork();
-
-            $(window).click(function playThatFunkyMusic() {
-                if (!isMyHeartWillGoOnCurrentlyNotBeingPlayed) return;
-                playMyHeartWillGoOnForLex();
-            });
+            addTheEventListenerToTriggerThePlayingOfMusicInTheWindowUponAUserClicking();
         }
 
         function playMyHeartWillGoOnForLex() {
@@ -201,6 +197,13 @@
                 niceSongToPlayOnThisWebsite.currentTime = 0;
                 MIDIjs.play('titanic-3.mid');
             })
+        }
+
+        function addTheEventListenerToTriggerThePlayingOfMusicInTheWindowUponAUserClicking() {
+            $(window).click(function playThatFunkyMusic() {
+                if (!isMyHeartWillGoOnCurrentlyNotBeingPlayed) return;
+                playMyHeartWillGoOnForLex();
+            });
         }
     });
 </script>
