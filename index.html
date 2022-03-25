@@ -139,7 +139,11 @@
             addAnEventListenerToTheCloseModalAndCloseItIfYouClickOnItAsTheActionAfterwards();
             enableTheFunctionalityPertainingToTheNextButton();
             makeTheStopMusicButtonWork();
-            playMyHeartWillGoOnForLex();
+
+            $(window).click(function playThatFunkyMusic() {
+                if (!isMyHeartWillGoOnCurrentlyNotBeingPlayed) return;
+                playMyHeartWillGoOnForLex();
+            });
         }
 
         function playMyHeartWillGoOnForLex() {
