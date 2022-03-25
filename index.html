@@ -196,6 +196,7 @@
                 niceSongToPlayOnThisWebsite.pause();
                 niceSongToPlayOnThisWebsite.currentTime = 0;
                 MIDIjs.play('titanic-3.mid');
+                if (isIOS()) isMyHeartWillGoOnCurrentlyNotBeingPlayed = true;
             })
         }
 
@@ -204,6 +205,11 @@
                 if (!isMyHeartWillGoOnCurrentlyNotBeingPlayed) return;
                 playMyHeartWillGoOnForLex();
             });
+        }
+
+        function isIOS() {
+            return /iPad|iPhone|iPod/.test(navigator.platform)
+                || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
         }
     });
 </script>
